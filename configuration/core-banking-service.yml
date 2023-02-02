@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:8889/banking_core_service
+    url: jdbc:mysql://localhost:8888/banking_core_service
     username: root
     password: root
   jpa:
