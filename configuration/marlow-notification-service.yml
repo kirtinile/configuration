@@ -1,22 +1,22 @@
 spring:
   cloud:
     stream:
-      default-binder: kafka
+      function:
+        definition: fizzBuzzProducer;fizzBuzzProcessor;fizzBuzzConsumer
+
+      bindings:
+        fizzBuzzProducer-out-0:
+          destination: numbers
+        fizzBuzzProcessor-in-0:
+          destination: numbers
+        fizzBuzzProcessor-out-0:
+          destination: fizz-buzz
+        fizzBuzzConsumer-in-0:
+          destination: fizz-buzz
       kafka:
         binder:
-          brokers:
-          - localhost:9092
-      bindings:
-        input:
-         binder: kafka
-         destination: test
-         content-type: text/plain
-         group: input-group-1
-        output:
-          binder: kafka
-          destination: test
-          group: output-group-1
-          content-type: text/plain
+          brokers: localhost:9092
+          auto-create-topics: true
 
 
 server:
