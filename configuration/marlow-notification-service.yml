@@ -2,13 +2,11 @@ spring:
   cloud:
     stream:
       function:
-        definition: producer;consumer
+        definition:consumer
 
       bindings:
-        producer-out-0:
-          destination: numbers
          consumer-in-0:
-          destination: fizz-buzz
+          destination: notification-topic
       kafka:
         binder:
           brokers: localhost:9092
