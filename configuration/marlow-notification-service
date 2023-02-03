@@ -1,0 +1,36 @@
+spring:
+  cloud:
+    stream:
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers:
+          - localhost:9092
+      bindings:
+        input:
+         binder: kafka
+         destination: test
+         content-type: text/plain
+         group: input-group-1
+        output:
+          binder: kafka
+          destination: test
+          group: output-group-1
+          content-type: text/plain
+
+
+server:
+  port: 8093
+
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl: 
+      defaultZone: ${EUREKA_SERVER:http://localhost:8083/eureka}
+    healthcheck:
+      enabled: true
+
+
+info:
+  app:
+    name: ${spring.application.name}
