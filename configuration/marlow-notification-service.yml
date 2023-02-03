@@ -2,16 +2,12 @@ spring:
   cloud:
     stream:
       function:
-        definition: fizzBuzzProducer;fizzBuzzProcessor;fizzBuzzConsumer
+        definition: producer;consumer
 
       bindings:
-        fizzBuzzProducer-out-0:
+        producer-out-0:
           destination: numbers
-        fizzBuzzProcessor-in-0:
-          destination: numbers
-        fizzBuzzProcessor-out-0:
-          destination: fizz-buzz
-        fizzBuzzConsumer-in-0:
+         consumer-in-0:
           destination: fizz-buzz
       kafka:
         binder:
