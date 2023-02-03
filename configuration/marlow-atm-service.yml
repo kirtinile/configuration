@@ -16,7 +16,7 @@ spring:
         definition: producer;
       bindings:
         producer-out-0:
-          destination: numbers
+          destination: notification-topic
 
 logging:
   level:
