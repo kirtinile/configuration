@@ -1,7 +1,6 @@
 spring:
-  sql:
-    init:
-      mode: always
+  datasource:
+    initialization-mode: always  
   datasource:
     url: jdbc:mysql://localhost:8889/banking_core_service_new?enabledTLSProtocols=TLSv1.2
     username: root
