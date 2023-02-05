@@ -1,10 +1,10 @@
 spring:
   datasource:
-    initialization-mode: never 
-    # initialization-mode: always 
+    # initialization-mode: never 
+    initialization-mode: always 
     url: jdbc:mysql://localhost:8889/banking_core_service_new?enabledTLSProtocols=TLSv1.2
     username: root
-    password: root
+    password: achhadata
   jpa:
     defer-datasource: true
     show-sql: true
