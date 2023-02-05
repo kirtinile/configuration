@@ -1,0 +1,50 @@
+spring:
+  datasource:
+    initialization-mode: never 
+    # initialization-mode: always 
+    url: jdbc:mysql://localhost:3306/banking_core_service_new?enabledTLSProtocols=TLSv1.2
+    username: root
+    password: achhadata
+  jpa:
+    defer-datasource: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: none
+  cloud:
+    stream:
+      function:
+        definition: producer;
+      bindings:
+        producer-out-0:
+          destination: notification-topic
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: TRACE
+
+kafka:
+  binding:
+    name: producer-out-0
+
+server:
+  port: 8092
+
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl: 
+      defaultZone: ${EUREKA_SERVER:http://localhost:8083/eureka}
+    healthcheck:
+      enabled: true
+
+
+info:
+  app:
+    name: ${spring.application.name}
