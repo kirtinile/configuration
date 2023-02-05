@@ -16,7 +16,7 @@ spring:
   cloud:
     stream:
       function:
-        definition: producer;
+        definition: producer
       bindings:
         producer-out-0:
           destination: notification-topic
