@@ -38,8 +38,7 @@ kafka:
     
 server:
   port: 8092
-  server:
-    error:
+  error:
       include-binding-errors: always
       include-message: always
   
